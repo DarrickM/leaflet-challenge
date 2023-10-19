@@ -10,7 +10,7 @@ let myMap = L.map("map", {
   }).addTo(myMap);
   
 
-//set the depth colors
+//get depth color
 function getColor(depth) {
     if (depth >= 90) {
         return "#500000";
@@ -32,7 +32,7 @@ let url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.g
 
 //get info from url
 d3.json(url).then(function(data) {
-    //displaay for more earthquake information
+    //display more info
     data.features.forEach(function(feature) {
         var mag = feature.properties.mag * 6;
         var depth = Math.round(feature.geometry.coordinates[2] * 10000) / 10000;
